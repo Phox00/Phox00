@@ -1,0 +1,30 @@
+from tkinter import *
+from PIL import ImageTk, Image
+# label = an area widget that holds text or/and an image within a window
+
+window = Tk()
+window.geometry("600x600")
+window.title("Phox Code")
+
+icon = PhotoImage(file="phox_logo_no_text.png")
+window.iconphoto(True, icon)
+window.config(background="#F56E2F")
+
+photo_temp = Image.open("cute_fox_coding.png")
+photo_sizing = photo_temp.resize((450, 450))
+photo = ImageTk.PhotoImage(photo_sizing)
+
+label = Label(window,
+              text="Are you coding, son?",
+              font=("Arial", 30, "bold"),
+              fg="orange",
+              bg="white",
+              relief=RAISED,
+              bd=10,
+              padx=20,
+              pady=20,
+              image=photo,
+              compound="bottom")
+
+label.pack()
+window.mainloop()
