@@ -132,9 +132,6 @@ def erseia_random_pick():
 -----------------------------------------------------""",  font=("Arial", 10, "bold"))
 
 
-# name
-
-
 header1 = tk.Frame(root, width=800, height=230, bg="#0EAAAC")
 header1.grid(columnspan=3)
 
