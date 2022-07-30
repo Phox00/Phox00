@@ -1,0 +1,158 @@
+import tkinter as tk
+from gui_functions import display_logo
+import random
+
+list_top = {"Акали", "Акшан", "Вай", "Вейн", "Вуконг", "Галио", "Гарен", "Грагас", "Грейвз", "Дариус", "Джакс",
+            "Джарван", "Джейс", "Диана", "Доктор Мундо", "Ирелия", "Камилла", "Кейл", "Кеннен", "Корки", "Ксин Жао",
+            "Ли Син", "Лулу", "Люциан", "Мальфит", "Насус", "Наутилус", "Нуну", "Олаф", "Пайк", "Пантеон",
+            "Ренгар", "Ренектон", "Ривен", "Рэйкан", "Сетт", "Синджед", "Тимо", "Триндамир", "Тристана",
+            "Фиора", "Шен", "Шивана", "Эзреал", "Экко", "Энни", "Ясуо"}
+
+list_jungle = {"Амуму", "Вай", "Вейн", "Вуконг", "Грагас", "Грейвс", "Дариус", "Джакс", "Джарван", "Джейс",
+               "Диана", "Доктор Мундо", "Ирелия", "Казикс", "Камилла", "Кейл", "Ксин Жао", "Ли Син", "Мастер Йи",
+               "Моргана", "Насус", "Наутилус", "Нуну", "Олаф", "Пайк", "Пантеон", "Раммус", "Ренгар", "Рекектон",
+               "Ривен", "Сетт", "Синджед" "Твистед Фейт", "Тимо", "Триндамир", "Физз", "Фиора", "Шен", "Шивана",
+               "Эвелин", "Экко", "Ясуо"}
+
+list_mid = {"Акали", "Акшан", "Ари", "Аурелион Сол", "Брэнд", "Варус", "Вейгар", "Галио", "Гарен", "Грагас",
+            "Джейс", "Джин", "Диана", "Зед", "Зиггс", "Ирелия", "Карма", "Катарина", "Кейл", "Кеннен",
+            "Корки", "Люкс", "Люциан", "Мальфит", "Моргана", "Орианна", "Пайк", "Пантеон", "Ривен", "Рэйкан",
+            "Серафина", "Синджед", "Твистед Фейт", "Тимо", "Физз", "Эзреал", "Экко", "Энни", "Эш", "Ясуо"}
+
+list_adc = {"Варус", "Вейн", "Джин", "Джинкс", "Дрейвен", "Зиггс", "Кайса", "Карма", "Кейтлин", "Корки",
+            "Люкс", "Люциан", "Мисс Фортуна", "Орианна", "Сенна", "Твистед Фейт", "Тристана", "Шая", "Эзреал", "Эш"}
+
+list_sup = {"Алистар", "Блицкранк", "Браум", "Галио", "Грагас", "Жанна", "Карма", "Леона", "Лулу", "Люкс",
+            "Мальфит", "Моргана", "Нами", "Наутилус", "Пайк", "Пантеон", "Рэйкан", "Сенна", "Серафина", "Сетт",
+            "Синджед", "Сона", "Сорака", "Твистед Фейт", "Треш", "Шен", "Энни", "Юми"}
+
+
+phox_pull = {'Акали', 'Акшан', 'Амуму', 'Ари', 'Блицкранк', 'Брэнд', 'Вай', 'Варус', 'Вейн', 'Галио',
+             'Гарен', 'Грагас', 'Грейвз', 'Дариус', 'Джакс', 'Джин', 'Джинкс', 'Дрейвен', 'Жанна',
+             'Зиггс', 'Ирелия', 'Казикс', 'Кайса', 'Камилла', 'Катарина', 'Кейтлин', 'Кеннен', 'Ксин Жао',
+             'Ли Син', 'Лулу', 'Люкс', 'Люциан', 'Мальфит', 'Мастер Йи', 'Мисс Фортуна', 'Моргана', 'Насус',
+             'Олаф', 'Орианна', 'Пайк', 'Пантеон', 'Ривен', 'Рэйкан', 'Сенна', 'Серафина', 'Сетт', 'Твистед Фейт',
+             'Триндамир', 'Физз', 'Фиора', 'Шая', 'Эвелинн', 'Экко', 'Энни', 'Эзреал', 'Эш', 'Ясуо'}
+erseia_pull = {'Акали', 'Акшан', 'Алистар', 'Ари', 'Блицкранк', 'Брэнд', 'Вай', 'Вейгар', 'Галио', 'Гарен',
+               'Джакс', 'Джинкс', 'Диана', 'Жанна', 'Зиггс', 'Ирелия', 'Кайса', 'Карма', 'Катарина', 'Кейл',
+               'Кеннен', 'Леона', 'Лулу', 'Люкс', 'Мальфит', 'Мастер Йи', 'Мисс Фортуна', 'Моргана', 'Нами',
+               'Насус', 'Наутилус', 'Орианна', 'Пайк', 'Пантеон', 'Ренгар', 'Ренектон', 'Ривен', 'Рэйкан',
+               'Сенна', 'Серафина', 'Сона', 'Сорака', 'Тимо', 'Триндамир', 'Физз', 'Фиора', 'Шая', 'Шивана',
+               'Экко', 'Энни', 'Эш', 'Юми', 'Ясуо'}
+elzark_pull = {"Алистар", "Ари", "Блицкранк", "Браум", "Вай", "Вуконг", "Гарен", "Дариус", "Джинкс",
+               "Доктор Мундо", "Жанна", "Ирелия", "Катарина", "Леона", "Лулу", "Люкс", "Мальфит", "Мастер Йи",
+               "Насус", "Нуну", "Пантеон", "Ривен", "Рэйкан", "Сенна", "Сетт", "Сона", "Сорака", "Твистед Фейт",
+               "Треш", "Триндамир", "Физз", "Фиора", "Шая", "Шен", "Шивана", "Эвелинн", "Эзреал", "Энни",
+               "Эш", "Юми", "Ясуо"}
+
+root = tk.Tk()
+
+root.title("LoL Dices")
+icon = tk.PhotoImage(file="LoL_icon.png")
+root.iconphoto(True, icon)
+
+root.geometry("+%d+%d" % (350, 10))
+
+header = tk.Frame(root, width=800, height=230, bg="white")
+header.grid(columnspan=3, rowspan=2, row=0)
+
+players_layer = tk.Frame(root, width=800, height=60, bg="#c8c8c8")
+players_layer.grid(columnspan=3, rowspan=1, row=2)
+
+main_content = tk.Frame(root, width=800, height=250, bg="#0EAAAC")
+main_content.grid(columnspan=3, rowspan=2, row=4)
+
+
+# Logo
+logo = display_logo("lol_dice.png", 0, 0)
+logo_lol = display_logo("LoL_icon.png", 2, 0)
+name_logo = display_logo("LoL_dices_name_logo.png", 1, 0)
+
+
+def phox_random_pick():
+    top = random.sample(list(phox_pull.intersection(list_top)), k=2)
+    jungle = random.sample(list(phox_pull.intersection(list_jungle)), k=2)
+    mid = random.sample(list(phox_pull.intersection(list_mid)), k=2)
+    adc = random.sample(list(phox_pull.intersection(list_adc)), k=2)
+    sup = random.sample(list(phox_pull.intersection(list_sup)), k=2)
+    text_box.config(text=f"""\n-----------------------------------------------------
+    Phox
+            
+Top:      {top[0]}, {top[1]}
+
+Jungle:   {jungle[0]}, {jungle[1]}
+
+Mid:      {mid[0]}, {mid[1]}
+
+Adc:      {adc[0]}, {adc[1]}
+
+Sup:      {sup[0]}, {sup[1]}
+-----------------------------------------------------""", font=("Arial", 10, "bold"))
+
+
+def elzark_random_pick():
+    top = random.sample(list(elzark_pull.intersection(list_top)), k=2)
+    jungle = random.sample(list(elzark_pull.intersection(list_jungle)), k=2)
+    mid = random.sample(list(elzark_pull.intersection(list_mid)), k=2)
+    adc = random.sample(list(elzark_pull.intersection(list_adc)), k=2)
+    sup = random.sample(list(elzark_pull.intersection(list_sup)), k=2)
+    text_box.config(text=f"""\n-----------------------------------------------------
+    Elzark
+
+    Top:      {top[0]}, {top[1]}
+    
+    Jungle:   {jungle[0]}, {jungle[1]}
+    
+    Mid:      {mid[0]}, {mid[1]}
+    
+    Adc:      {adc[0]}, {adc[1]}
+    
+    Sup:      {sup[0]}, {sup[1]}
+-----------------------------------------------------""",  font=("Arial", 10, "bold"))
+
+
+def erseia_random_pick():
+    top = random.sample(list(erseia_pull.intersection(list_top)), k=2)
+    jungle = random.sample(list(erseia_pull.intersection(list_jungle)), k=2)
+    mid = random.sample(list(erseia_pull.intersection(list_mid)), k=2)
+    adc = random.sample(list(erseia_pull.intersection(list_adc)), k=2)
+    sup = random.sample(list(erseia_pull.intersection(list_sup)), k=2)
+    text_box.config(text=f"""\n-----------------------------------------------------
+    Erseia
+
+    Top:      {top[0]}, {top[1]}
+    
+    Jungle:   {jungle[0]}, {jungle[1]}
+    
+    Mid:      {mid[0]}, {mid[1]}
+    
+    Adc:      {adc[0]}, {adc[1]}
+    
+    Sup:      {sup[0]}, {sup[1]}
+-----------------------------------------------------""",  font=("Arial", 10, "bold"))
+
+
+# name
+
+
+header1 = tk.Frame(root, width=800, height=230, bg="#0EAAAC")
+header1.grid(columnspan=3)
+
+# Text frame
+text_box = tk.Label(root, height=20, width=39, font=("Arial", 10))
+text_box.grid(columnspan=1, rowspan=3, column=1, row=4)
+
+# Buttons
+phox_button = tk.Button(root, width=20, height=2, text="Phox", font=("Raleway", 14), bg="#20bebe", fg="white",
+                        command=phox_random_pick)
+phox_button.grid(row=2, column=0)
+
+elzark_button = tk.Button(root, width=20, height=2, text="Elzark", font=("Raleway", 14), bg="#20bebe", fg="white",
+                          command=elzark_random_pick)
+elzark_button.grid(row=2, column=1)
+
+erseia_button = tk.Button(root, width=20, height=2, text="Erseia", font=("Raleway", 14), bg="#20bebe", fg="white",
+                          command=erseia_random_pick)
+erseia_button.grid(row=2, column=2)
+
+root.mainloop()
