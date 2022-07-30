@@ -78,15 +78,15 @@ def phox_random_pick():
     text_box.config(text=f"""\n-----------------------------------------------------
     Phox
             
-Top:      {top[0]}, {top[1]}
+    Top:      {top[0]}, {top[1]}
 
-Jungle:   {jungle[0]}, {jungle[1]}
+    Jungle:   {jungle[0]}, {jungle[1]}
 
-Mid:      {mid[0]}, {mid[1]}
+    Mid:      {mid[0]}, {mid[1]}
 
-Adc:      {adc[0]}, {adc[1]}
+    Adc:      {adc[0]}, {adc[1]}
 
-Sup:      {sup[0]}, {sup[1]}
+    Sup:      {sup[0]}, {sup[1]}
 -----------------------------------------------------""", font=("Arial", 10, "bold"))
 
 
